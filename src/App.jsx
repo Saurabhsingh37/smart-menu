@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import ImageUploadTest from "./components/ImageUploadTest";
+import WebsiteScene from "./components/WebsiteScene";
+
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/adminDashboard";
 import ProtectedAdminRoute from "./admin/ProtectedAdminRoute";
@@ -10,68 +12,113 @@ import AllMenuItems from "./admin/AllMenuItems";
 import EditMenuItem from "./admin/EditMenuItem";
 import ManageCategories from "./admin/ManageCategories";
 
+import { OrderProvider } from "./context/OrderContext";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <div className="select-none">
+      <BrowserRouter>
+        <Routes>
+          {/* =====================================================
+              MAIN RESTAURANT WEBSITE
+          ====================================================== */}
+          <Route
+            path="/"
+            element={
+              <OrderProvider>
+                <div className="relative min-h-screen overflow-hidden bg-[#100906]">
+                  {/* WEBSITE-WIDE 3D ATMOSPHERE */}
+                  <WebsiteScene />
 
-        {/* Main Restaurant Website */}
-        <Route path="/" element={<Home />} />
+                  {/* WEBSITE CONTENT */}
+                  <div className="relative z-10">
+                    <Home />
+                  </div>
+                </div>
+              </OrderProvider>
+            }
+          />
 
-        {/* Temporary Image Upload Test */}
-        <Route
-          path="/image-upload-test"
-          element={<ImageUploadTest />}
-        />
+          {/* =====================================================
+              TEMPORARY IMAGE UPLOAD TEST
+          ====================================================== */}
+          <Route
+            path="/image-upload-test"
+            element={<ImageUploadTest />}
+          />
 
-        {/* Admin Login */}
-        <Route path="/admin" element={<AdminLogin />} />
+          {/* =====================================================
+              ADMIN LOGIN
+          ====================================================== */}
+          <Route
+            path="/admin"
+            element={<AdminLogin />}
+          />
 
-        {/* Protected Admin Dashboard */}
-        <Route
-          path="/admin/dashboard"
-          element={
-            <ProtectedAdminRoute>
-              <AdminDashboard />
-            </ProtectedAdminRoute>
-          }
-        />
-        <Route
-          path="/admin/menu/add"
-          element={
-            <ProtectedAdminRoute>
-              <AddMenuItem />
-            </ProtectedAdminRoute>
-          }
-        />
-        <Route
-          path="/admin/menu"
-          element={
-            <ProtectedAdminRoute>
-              <AllMenuItems />
-            </ProtectedAdminRoute>
-          }
-        />
-        <Route
-          path="/admin/menu/edit/:id"
-          element={
-            <ProtectedAdminRoute>
-              <EditMenuItem />
-            </ProtectedAdminRoute>
-          }
-        />
-        <Route
-          path="/admin/categories"
-          element={
-            <ProtectedAdminRoute>
-              <ManageCategories />
-            </ProtectedAdminRoute>
-          }
-        />
+          {/* =====================================================
+              PROTECTED ADMIN DASHBOARD
+          ====================================================== */}
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedAdminRoute>
+                <AdminDashboard />
+              </ProtectedAdminRoute>
+            }
+          />
 
-      </Routes>
-    </BrowserRouter>
+          {/* =====================================================
+              ADD MENU ITEM
+          ====================================================== */}
+          <Route
+            path="/admin/menu/add"
+            element={
+              <ProtectedAdminRoute>
+                <AddMenuItem />
+              </ProtectedAdminRoute>
+            }
+          />
+
+          {/* =====================================================
+              ALL MENU ITEMS
+          ====================================================== */}
+          <Route
+            path="/admin/menu"
+            element={
+              <ProtectedAdminRoute>
+                <AllMenuItems />
+              </ProtectedAdminRoute>
+            }
+          />
+
+          {/* =====================================================
+              EDIT MENU ITEM
+          ====================================================== */}
+          <Route
+            path="/admin/menu/edit/:id"
+            element={
+              <ProtectedAdminRoute>
+                <EditMenuItem />
+              </ProtectedAdminRoute>
+            }
+          />
+
+          {/* =====================================================
+              MANAGE CATEGORIES
+          ====================================================== */}
+          <Route
+            path="/admin/categories"
+            element={
+              <ProtectedAdminRoute>
+                <ManageCategories />
+              </ProtectedAdminRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
 export default App;
+

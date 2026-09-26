@@ -34,35 +34,32 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-[#100906] text-[#f8eee4]"
+      className="relative min-h-screen overflow-hidden bg-transparent text-[#f8eee4]"
     >
       {/* =====================================================
-          BACKGROUND
+          HERO BACKGROUND IMAGE
       ====================================================== */}
 
-      <div className="absolute inset-0">
-        <img
-          src={heroData.backgroundImage}
-          alt=""
-          className="h-full w-full object-cover opacity-90"
+      <div className="pointer-events-none absolute inset-0 z-0">
+        {/* Background image */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-cover
+            bg-center
+            bg-no-repeat
+          "
+          style={{
+            backgroundImage: `url(${heroData.backgroundImage})`,
+          }}
         />
 
-        {/* Main dark overlay */}
-        <div className="absolute inset-0 bg-[#100906]/70" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[#100906]/65" />
 
-        {/* Cinematic bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#100906] via-[#100906]/80 to-transparent" />
-
-        {/* Top fade */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#100906]/70 to-transparent" />
-
-        {/* Orange atmospheric glow */}
-        <div className="absolute -right-40 top-[15%] h-[500px] w-[500px] rounded-full bg-orange-600/10 blur-[140px]" />
-
-        <div className="absolute -left-40 bottom-[10%] h-[400px] w-[400px] rounded-full bg-orange-500/10 blur-[130px]" />
-
-        {/* Center glow */}
-        <div className="absolute left-1/2 top-1/2 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/[0.04] blur-[100px]" />
+        {/* Bottom fade */}
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#100906] via-[#100906]/40 to-transparent" />
       </div>
 
       {/* =====================================================
@@ -79,12 +76,8 @@ function Hero() {
 
       <header className="relative z-40 px-5 pt-5 sm:px-8 sm:pt-7 lg:px-12">
         <nav className="mx-auto flex max-w-[1500px] items-center justify-between">
-
           {/* Brand */}
-          <a
-            href="#home"
-            className="group flex items-center gap-3"
-          >
+          <a href="#home" className="group flex items-center gap-3">
             {/* Small mark */}
             <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-orange-400/30 bg-orange-500/[0.08] backdrop-blur-xl">
               <span className="font-serif text-lg font-bold italic text-orange-400">
@@ -96,9 +89,7 @@ function Hero() {
 
             <div className="leading-none">
               <p className="font-serif text-[17px] font-bold italic tracking-wide text-[#f8eee4]">
-                HOT{" "}
-                <span className="text-orange-500">&</span>{" "}
-                SPICE
+                HOT <span className="text-orange-500">&</span> SPICE
               </p>
 
               <p className="mt-1 text-[7px] font-medium tracking-[0.32em] text-white/35">
@@ -164,10 +155,7 @@ function Hero() {
               lg:flex
             "
           >
-            <ShieldCheck
-              size={13}
-              strokeWidth={1.6}
-            />
+            <ShieldCheck size={13} strokeWidth={1.6} />
 
             ADMIN
           </a>
@@ -211,10 +199,7 @@ function Hero() {
               lg:hidden
             "
           >
-            <Menu
-              size={18}
-              strokeWidth={1.7}
-            />
+            <Menu size={18} strokeWidth={1.7} />
           </button>
         </nav>
       </header>
@@ -224,15 +209,12 @@ function Hero() {
       ====================================================== */}
 
       <div className="relative z-20 mx-auto flex min-h-[calc(100vh-80px)] max-w-[1500px] flex-col px-5 pb-7 pt-12 sm:px-8 sm:pt-14 lg:px-12 lg:pt-8">
-
         <div className="grid flex-1 items-center lg:grid-cols-[0.92fr_1.08fr]">
-
           {/* =================================================
               LEFT CONTENT
           ================================================= */}
 
           <div className="relative z-20 max-w-[680px]">
-
             {/* Eyebrow */}
             <motion.div
               initial={{
@@ -276,7 +258,6 @@ function Hero() {
               className="relative font-serif"
             >
               {/* HOT */}
-
               <div
                 className="
                   text-[21vw]
@@ -292,7 +273,6 @@ function Hero() {
               </div>
 
               {/* & */}
-
               <div
                 className="
                   relative
@@ -318,7 +298,6 @@ function Hero() {
               </div>
 
               {/* SPICE */}
-
               <div
                 className="
                   ml-[28vw]
@@ -338,7 +317,6 @@ function Hero() {
               </div>
 
               {/* RESTAURANT */}
-
               <div className="ml-[9vw] mt-5 flex items-center gap-3 sm:ml-14 lg:ml-20">
                 <span className="h-px w-7 bg-orange-500/80 sm:w-12" />
 
@@ -401,7 +379,7 @@ function Hero() {
               </span>
 
               <p className="text-[12px] font-medium tracking-wide text-orange-400 sm:text-sm">
-                Ready in just{" "}
+                Ready in{" "}
                 <span className="font-bold text-orange-300">
                   25–30 minutes
                 </span>
@@ -428,7 +406,6 @@ function Hero() {
               className="mt-8 flex flex-wrap items-center gap-3"
             >
               {/* Explore menu */}
-
               <button
                 type="button"
                 onClick={scrollToMenu}
@@ -461,7 +438,6 @@ function Hero() {
               </button>
 
               {/* Find us */}
-
               <button
                 type="button"
                 className="
@@ -493,13 +469,10 @@ function Hero() {
           ================================================= */}
 
           <div className="relative mt-12 flex min-h-[380px] items-center justify-center lg:mt-0 lg:min-h-[650px]">
-
             {/* Glow */}
-
             <div className="absolute h-[250px] w-[250px] rounded-full bg-orange-500/20 blur-[100px] sm:h-[350px] sm:w-[350px] lg:h-[450px] lg:w-[450px]" />
 
             {/* Outer ring */}
-
             <motion.div
               animate={{
                 rotate: 360,
@@ -525,7 +498,6 @@ function Hero() {
             />
 
             {/* Inner ring */}
-
             <motion.div
               animate={{
                 rotate: -360,
@@ -550,7 +522,6 @@ function Hero() {
             />
 
             {/* Small orbit dot */}
-
             <motion.div
               animate={{
                 rotate: 360,
@@ -677,7 +648,6 @@ function Hero() {
           className="mt-4 flex items-end justify-between border-t border-white/[0.08] pt-4"
         >
           {/* Location */}
-
           <div>
             <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-white/30 sm:text-[9px]">
               {heroData.location}
@@ -689,7 +659,6 @@ function Hero() {
           </div>
 
           {/* Scroll */}
-
           <button
             type="button"
             onClick={scrollToMenu}
@@ -700,10 +669,7 @@ function Hero() {
             </span>
 
             <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 transition-all duration-300 group-hover:border-orange-400/40 group-hover:bg-orange-500/5">
-              <ArrowDown
-                size={13}
-                className="animate-bounce"
-              />
+              <ArrowDown size={13} className="animate-bounce" />
             </span>
           </button>
         </motion.div>
@@ -720,7 +686,6 @@ function Hero() {
       </div>
 
       {/* Right vertical accent */}
-
       <div className="pointer-events-none absolute right-7 top-1/2 hidden -translate-y-1/2 lg:block">
         <div className="flex flex-col items-center gap-3">
           <span className="h-16 w-px bg-gradient-to-b from-transparent via-orange-500/40 to-transparent" />
