@@ -4,7 +4,7 @@ import Hero from "../sections/Hero";
 import TodaySpecial from "../sections/TodaySpecial";
 import Menu from "../sections/Menu";
 import Gallery from "../sections/Gallery";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 import OrderBookButton from "../components/OrderBookButton";
 import OrderBookDrawer from "../components/OrderBookDrawer";
