@@ -5,7 +5,7 @@ import ImageUploadTest from "./components/ImageUploadTest";
 import WebsiteScene from "./components/WebsiteScene";
 
 import AdminLogin from "./admin/AdminLogin";
-import AdminDashboard from "./admin/adminDashboard";
+import AdminDashboard from "./admin/AdminDashboard";
 import ProtectedAdminRoute from "./admin/ProtectedAdminRoute";
 import AddMenuItem from "./admin/AddMenuItem";
 import AllMenuItems from "./admin/AllMenuItems";
