@@ -1,7 +1,7 @@
 const heroData = {
-  backgroundImage: "https://res.cloudinary.com/diokfcms4/image/upload/v1790281089/food_logo_das3da.jpg",
+  backgroundImage: "https://akjlpwzjthvauyluhcrw.supabase.co/storage/v1/object/public/hero-assets/background%20image.png",
 
-  foodImage: "https://res.cloudinary.com/diokfcms4/image/upload/v1790281815/ChatGPT_Image_Sep_25_2026_01_58_21_AM_apebfd.png",
+  foodImage: "https://akjlpwzjthvauyluhcrw.supabase.co/storage/v1/object/public/hero-assets/logo.png",
 
   restaurantName: "HOT & SPICE",
 
