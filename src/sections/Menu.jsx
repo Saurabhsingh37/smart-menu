@@ -454,14 +454,16 @@ function Menu() {
           >
             <h2
               className="
-                text-3xl
-                font-black
-                uppercase
-                tracking-tight
-                text-white
-                sm:text-4xl
-                md:text-5xl
-              "
+              text-2xl
+              font-black
+              uppercase
+              tracking-[0.08em]
+              text-white
+              sm:text-4xl
+              sm:tracking-[0.10em]
+              md:text-5xl
+              md:tracking-[0.11em]
+            "
             >
               Explore Our Menu
             </h2>
@@ -469,14 +471,16 @@ function Menu() {
 
           <p
             className="
-              mx-auto
-              mt-4
-              max-w-2xl
-              text-sm
-              leading-6
-              text-white/50
-              sm:text-base
-            "
+            mt-4
+            max-w-lg
+            text-sm
+            leading-6
+            tracking-[0.035em]
+            text-white/70
+            sm:text-[15px]
+            sm:leading-7
+            sm:tracking-[0.04em]
+          "
           >
             Discover our freshly prepared
             vegetarian favourites, made with
